@@ -29,7 +29,17 @@ public class Parser {
             lines.remove(0);
             for (var line : lines) {
                 var row = line.split(",");
-                records.add(new Record(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10]));
+                if (row.length != 11) {
+                    continue;
+                }
+                records.add(
+                        new Record(
+                                Integer.parseInt(row[0]), row[1], row[2], row[3],
+                                row[4], row[5], Double.parseDouble(row[6]),
+                                Double.parseDouble(row[7]), Double.parseDouble(row[8]), Double.parseDouble(row[9]),
+                                Double.parseDouble(row[10])
+                        )
+                );
             }
         } catch (Exception ex) {
             ex.printStackTrace();

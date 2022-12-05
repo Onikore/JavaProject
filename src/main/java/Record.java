@@ -1,20 +1,20 @@
 package main.java;
 
 public class Record {
-    public String rank;
+    public int rank;
     public String name;
     public String platform;
     public String year;
     public String genre;
     public String publisher;
-    public String naSales;
-    public String euSales;
-    public String jpSales;
-    public String otherSales;
-    public String globalSales;
+    public double naSales;
+    public double euSales;
+    public double jpSales;
+    public double otherSales;
+    public double globalSales;
 
-    public Record(String rank, String name, String platform, String year, String genre, String publisher,
-                  String naSales, String euSales, String jpSales, String otherSales, String globalSales) {
+    public Record(int rank, String name, String platform, String year, String genre, String publisher,
+                  double naSales, double euSales, double jpSales, double otherSales, double globalSales) {
         this.rank = rank;
         this.name = name;
         this.platform = platform;

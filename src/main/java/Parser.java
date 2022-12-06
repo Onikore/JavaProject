@@ -17,7 +17,6 @@ public class Parser {
     private final HashSet<String> platforms = new HashSet<>();
 
     public Parser(String path) {
-//        this.path = "src/main/resources/games.csv";
         this.path = path;
     }
 
@@ -41,8 +40,8 @@ public class Parser {
                         )
                 );
             }
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

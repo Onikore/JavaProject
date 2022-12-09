@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
         /*====== СОЗДАНИЕ ВСЕГО =======*/
         var parser = new Parser(CSV_PATH);
-        parser.loadStaffFromFile();
+        parser.loadRecordsFromFile();
         parser.generateFields();
         var years = parser.getYears();
         var genres = parser.getGenres();

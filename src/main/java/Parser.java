@@ -20,7 +20,7 @@ public class Parser {
         this.path = path;
     }
 
-    public void loadStaffFromFile() {
+    public void loadRecordsFromFile() {
         var file = Paths.get(path);
         if (!Files.exists(file)) throw new IllegalArgumentException();
         try {

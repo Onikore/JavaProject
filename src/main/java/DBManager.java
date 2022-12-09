@@ -3,11 +3,13 @@ package main.java;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static main.java.Constants.*;
 
 public class DBManager {
-    private DBManager(){
+    private DBManager() {
     }
 
     private static Connection getConnection() {
@@ -70,6 +72,39 @@ public class DBManager {
             e.printStackTrace();
         }
     }
+
+    public static List<Pair> getAVGPlatforms() {
+        var pairs = new ArrayList<Pair>();
+        try (var conn = getConnection()) {
+            var preparedStatement = conn.prepareStatement(TASK_1_QUERY);
+            var resSet = preparedStatement.executeQuery();
+            while (resSet.next()) {
+                pairs.add(new Pair(
+                        resSet.getString(1),
+                        resSet.getDouble(2))
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return pairs;
+    }
+
+    public static Pair task2and3(String sql) {
+        Pair pair = null;
+        try (var conn = getConnection()) {
+            var preparedStatement = conn.prepareStatement(sql);
+            var resSet = preparedStatement.executeQuery();
+            resSet.next();
+            pair = new Pair(
+                    resSet.getString(1),
+                    resSet.getDouble(2));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return pair;
+    }
+
 
     private static int getId(String query, String value) {
         var res = 0;

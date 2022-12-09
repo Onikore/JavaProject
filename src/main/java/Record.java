@@ -31,15 +31,15 @@ public class Record {
     @Override
     public String toString() {
         return this.rank + ", " +
-                this.name + ", " +
-                this.platform + ", " +
-                this.year + ", " +
-                this.genre + ", " +
-                this.publisher + ", " +
-                this.naSales + ", " +
-                this.euSales + ", " +
-                this.jpSales + ", " +
-                this.otherSales + ", " +
-                this.globalSales;
+               this.name + ", " +
+               this.platform + ", " +
+               this.year + ", " +
+               this.genre + ", " +
+               this.publisher + ", " +
+               this.naSales + ", " +
+               this.euSales + ", " +
+               this.jpSales + ", " +
+               this.otherSales + ", " +
+               this.globalSales;
     }
 }

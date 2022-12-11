@@ -59,9 +59,9 @@ public class Constants {
                                               "       max(jp_Sales)                   as max_jp_sale " +
                                               "from records " +
                                               "where (records.year BETWEEN " +
-                                              "    (select id from years where year = 2006) " +
+                                              "    (select id from years where year = 2000) " +
                                               "    and " +
-                                              "    (select id from years where year = 2000)) " +
+                                              "    (select id from years where year = 2006)) " +
                                               "  and genre = (select id " +
                                               "               from genres " +
                                               "               where genres.genre = 'Sports');";

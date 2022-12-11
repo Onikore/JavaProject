@@ -14,7 +14,10 @@ public class Main {
         var parser = new Parser(CSV_PATH);
         parser.loadRecordsFromFile();
         parser.generateFields();
-        var years = parser.getYears();
+        var years = parser.getYears().stream()
+                .sorted()
+                .toList();
+
         var genres = parser.getGenres();
         var names = parser.getNames();
         var platforms = parser.getPlatforms();
@@ -24,22 +27,22 @@ public class Main {
         DBManager.createDB();
 
         for (var y : years)
-            DBManager.insertSimples("years", y);
+            DBManager.insertCategories("years", y);
 
         for (var y : genres)
-            DBManager.insertSimples("genres", y);
+            DBManager.insertCategories("genres", y);
 
         for (var y : names)
-            DBManager.insertSimples("names", y);
+            DBManager.insertCategories("names", y);
 
         for (var y : platforms)
-            DBManager.insertSimples("platforms", y);
+            DBManager.insertCategories("platforms", y);
 
         for (var y : publishers)
-            DBManager.insertSimples("publishers", y);
+            DBManager.insertCategories("publishers", y);
 
         for (Record z : records)
-            DBManager.insertBig(z);
+            DBManager.insertRecords(z);
 
         /*========= ЗАДАНИЕ 1 =========*/
         var task1Data = DBManager.getAVGPlatforms();
@@ -56,7 +59,6 @@ public class Main {
         /*========= ЗАДАНИЕ 2 =========*/
         var task2data = DBManager.task2and3(TASK_2_QUERY);
         System.out.println("ЗАДАНИЕ 2: " + task2data.platform + " - " + task2data.avgSales);
-
 
         /*========= ЗАДАНИЕ 3 =========*/
         var task3data = DBManager.task2and3(TASK_3_QUERY);

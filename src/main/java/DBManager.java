@@ -38,7 +38,7 @@ public class DBManager {
         }
     }
 
-    public static void insertSimples(String table, String value) {
+    public static void insertCategories(String table, String value) {
         var sql = "insert into " + table + " values (?,?);";
         try (var conn = getConnection()) {
             var preparedStatement = conn.prepareStatement(sql);
@@ -51,7 +51,7 @@ public class DBManager {
         }
     }
 
-    public static void insertBig(Record value) {
+    public static void insertRecords(Record value) {
         try (var conn = getConnection()) {
             var preparedStatement = conn.prepareStatement(INSERT_RECORDS);
             preparedStatement.setInt(2, value.rank);
